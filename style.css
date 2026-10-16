@@ -101,8 +101,8 @@
 .bubble--r { justify-self: end; border-color: var(--color-lilac); }
 .bubble--r .nb { display: block; }   
 .bubble--r::after { left: auto; right: 1.2em; border-color: var(--color-lilac); }
-.bubble { transform: scale(0.4); opacity: 0; transform-origin: 15% 100%; transition: transform 500ms cubic-bezier(0.34, 1.7, 0.5, 1) 900ms, opacity 200ms ease 900ms; }
-.bubble--r { transform-origin: 85% 100%; transition-delay: 1150ms; }
+.bubble { transform: scale(0.4); opacity: 0; transform-origin: 15% 100%; transition: transform 450ms cubic-bezier(0.34, 1.7, 0.5, 1) 300ms, opacity 150ms ease 300ms; }
+.bubble--r { transform-origin: 85% 100%; transition-delay: 480ms; }
 .feat.is-on .bubble { transform: none; opacity: 1; }
 .page--feat .body + .body { margin-top: 0.45em; }
 .body--q { font-weight: 700; }

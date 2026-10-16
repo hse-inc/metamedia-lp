@@ -4,23 +4,40 @@
  */
 (() => {
   const KINDS = ['streak--purple', 'streak--cyan', 'streak--lilac', 'streak--gray', 'streak--sky', 'streak--violet', 'streak--cyan', 'streak--purple', 'streak--gray'];
-  const N = 66;
-  document.querySelectorAll('.streaks').forEach((box) => {
-    const frag = document.createDocumentFragment();
+  const N = 66, NS = 'http://www.w3.org/2000/svg';
+  const draw = (box) => {
+    const W = box.clientWidth || 390, H = box.clientHeight || 664, D = Math.hypot(W, H);
+    box.querySelectorAll('.streaks__layer').forEach((l) => l.remove());
+    const layers = [0, 1].map((k) => {
+      const svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('class', k ? 'streaks__layer streaks__layer--b' : 'streaks__layer');
+      svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+      svg.setAttribute('preserveAspectRatio', 'none');
+      return svg;
+    });
     for (let i = 0; i < N; i++) {
-      const s = document.createElement('span');
-      s.className = 'streak ' + KINDS[(i * 4) % KINDS.length];
       const t = ((i * 29) % N) / (N - 1);
-      const ang = -(4 + t * 82) + (((i * 7) % 5) - 2) * 0.8;
+      const ang = (4 + t * 82 - (((i * 7) % 5) - 2) * 0.8) * Math.PI / 180;
       const short = i % 5 === 4;
-      s.style.setProperty('--a', ang.toFixed(1) + 'deg');
-      s.style.setProperty('--x', (-7 + ((i * 17) % 9)) + '%');
-      s.style.setProperty('--y', (99 + ((i * 13) % 8)) + '%');
-      s.style.setProperty('--len', (short ? 70 + ((i * 23) % 60) : 150 + ((i * 41) % 110)) + '%');
-      s.style.setProperty('--w', (6 + ((i * 11) % 26)) + 'px');
-      s.style.setProperty('--d', Math.round(40 + (((i * 53) % N) / N) * 650) + 'ms');
-      frag.appendChild(s);
+      const ox = W * (-7 + ((i * 17) % 9)) / 100, oy = H * (99 + ((i * 13) % 8)) / 100;
+      const len = D * (short ? 0.35 + ((i * 23) % 60) / 200 : 0.75 + ((i * 41) % 110) / 200);
+      const w = 6 + ((i * 11) % 26), w0 = w * 0.08;
+      const ux = Math.cos(ang), uy = -Math.sin(ang), px = -uy, py = ux;
+      const tx = ox + ux * len, ty = oy + uy * len;
+      const pts = [[ox + px * w0 / 2, oy + py * w0 / 2], [tx + px * w / 2, ty + py * w / 2], [tx - px * w / 2, ty - py * w / 2], [ox - px * w0 / 2, oy - py * w0 / 2]];
+      const poly = document.createElementNS(NS, 'polygon');
+      poly.setAttribute('class', 'streak ' + KINDS[(i * 4) % KINDS.length]);
+      poly.setAttribute('points', pts.map((q) => q.map((n) => n.toFixed(1)).join(',')).join(' '));
+      layers[short || i % 3 === 0 ? 1 : 0].appendChild(poly);
     }
+    layers.forEach((l) => box.prepend(l));
+  };
+  const boxes = [...document.querySelectorAll('.streaks')];
+  boxes.forEach(draw);
+  let resizeT = 0;
+  window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(() => boxes.forEach(draw), 200); });
+  boxes.forEach((box) => {
+    const frag = document.createDocumentFragment();
     if (box.closest('.page--msg')) {
       const SPARKS = [[78, 14, 14, '--color-purple', 0], [92, 34, 10, '--color-cyan', 600], [58, 6, 9, '--color-cyan', 1200], [86, 56, 12, '--color-lilac', 300], [70, 26, 7, '--color-violet', 900]];
       SPARKS.forEach(([x, y, size, c, d]) => {
@@ -42,7 +59,7 @@
       [...list, ...list].forEach((src) => {
         const img = document.createElement('img');
         img.className = 'reel__img';
-        img.src = src + '?v=20261016b';
+        img.src = src + '?v=20261016d';
         img.alt = '';
         img.decoding = 'async';
         track.appendChild(img);

@@ -31,6 +31,7 @@
   --grad-key-light: linear-gradient(100deg, var(--color-sky) 0%, var(--color-lilac) 100%);
   --color-glow-purple: rgb(130 24 136 / 0.42);
   --color-glow-cyan: rgb(75 181 230 / 0.26);
+  --color-veil-0: rgb(255 255 255 / 0);   
 
   
   --bg-dark: var(--color-dark);

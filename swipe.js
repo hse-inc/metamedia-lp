@@ -46,8 +46,8 @@
     pages[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const GAP_MS = 250, LOCK_MS = 600, HOLD_MS = 450;
-  let locked = false, lastWheel = 0, lastDy = 0, fresh = true, longAt = 0;
+  const GAP_MS = 250, LOCK_MS = 600, HOLD_MS = 450, QUIET_MS = 3000;
+  let locked = false, lastT = 0, lastDy = 0, vel = 0, sentAt = -1e9, fresh = true, longAt = 0;
   const insideLong = (dy) => {
     const page = pages[current];
     if (!page || !page.classList.contains('page--long')) return null;
@@ -61,10 +61,16 @@
   };
   window.addEventListener('wheel', (e) => {
     if (e.ctrlKey) return;
-    const now = performance.now();
-    const dy = e.deltaY, ad = Math.abs(dy), prev = Math.abs(lastDy);
-    const isNew = now - lastWheel > GAP_MS || (ad >= 4 && Math.sign(dy) !== Math.sign(lastDy)) || (ad >= 15 && ad > prev * 1.6 + 4);
-    lastWheel = now;
+    const t = e.timeStamp || performance.now();
+    const dt = Math.max(8, t - lastT);
+    const dy = e.deltaY * (e.deltaMode === 1 ? 16 : 1), ad = Math.abs(dy);
+    const v = ad / dt;
+    const gap = t - lastT > GAP_MS && (Math.abs(lastDy) < 10 || t - sentAt > QUIET_MS);
+    const flip = ad >= 4 && lastDy !== 0 && Math.sign(dy) !== Math.sign(lastDy);
+    const surge = ad >= 15 && ad > Math.abs(lastDy) * 1.6 + 4 && v > vel * 1.8 + 0.25;
+    const isNew = gap || flip || surge || t - lastT > 1000;
+    vel = t - lastT > GAP_MS ? v : vel * 0.6 + v * 0.4;
+    lastT = t;
     lastDy = dy;
     if (isNew) fresh = true;
     if (locked) { e.preventDefault(); fresh = false; return; }
@@ -78,6 +84,7 @@
     if (inside === 'hold' || !fresh || ad < 4) return;
     fresh = false;
     locked = true;
+    sentAt = t;
     go(current + (dy > 0 ? 1 : -1));
     setTimeout(() => { locked = false; }, LOCK_MS);
   }, { passive: false });

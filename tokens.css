@@ -31,6 +31,9 @@
   --grad-key-light: linear-gradient(100deg, var(--color-sky) 0%, var(--color-lilac) 100%);
   --color-glow-purple: rgb(130 24 136 / 0.42);
   --color-glow-cyan: rgb(75 181 230 / 0.26);
+  --color-ink-sub: #66666d;        
+  --color-on-dark-line-2: rgb(255 255 255 / 0.18);
+  --color-mask: #000000;           
   --color-card: rgb(255 255 255 / 0.94);   
   --color-card-line: rgb(130 24 136 / 0.22);
   --color-glow-purple-soft: rgb(130 24 136 / 0.12);   

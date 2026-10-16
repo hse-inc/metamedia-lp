@@ -25,6 +25,14 @@
   --color-shadow: rgb(13 26 51 / 0.18);
 
   
+  --grad-key: linear-gradient(100deg, var(--color-purple) 0%, var(--color-violet) 50%, var(--color-cyan) 100%);
+  --grad-key-2: linear-gradient(100deg, var(--color-violet) 0%, var(--color-cyan) 100%);
+  --grad-key-v: linear-gradient(180deg, var(--color-purple) 0%, var(--color-violet) 50%, var(--color-cyan) 100%);
+  --grad-key-light: linear-gradient(100deg, var(--color-sky) 0%, var(--color-lilac) 100%);
+  --color-glow-purple: rgb(130 24 136 / 0.42);
+  --color-glow-cyan: rgb(75 181 230 / 0.26);
+
+  
   --bg-dark: var(--color-dark);
   --bg-accent: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
 

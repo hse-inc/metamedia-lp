@@ -1,0 +1,62 @@
+:root {
+  
+  --color-ink: #222222;          
+  --color-main: #222222;         
+  --color-main-2: #4bb5e6;       
+  --color-accent: #821888;       
+  --color-accent-2: #6a1270;     
+  --color-cyan: #4bb5e6;
+  --color-purple: #821888;
+  --color-gray-line: #dfe2e7;    
+  --color-mark: rgb(75 181 230 / 0.32);   
+  --color-mark-dark: rgb(130 24 136 / 0.75);   
+  --color-lilac: #c584c9;        
+  --color-sky: #a3d9f2;          
+  --color-violet: #5d63c4;       
+  --color-base: #fcfcfc;         
+  --color-pale: #eef7fc;         
+  --color-line: #c9d1dc;         
+  --color-dark: #222222;         
+  --color-dark-2: #2e2e31;       
+  --color-on-dark: #ffffff;
+  --color-on-dark-line: rgb(255 255 255 / 0.6);
+  --color-on-dark-sub: rgb(255 255 255 / 0.82);
+  --color-error: #c8312b;
+  --color-shadow: rgb(13 26 51 / 0.18);
+
+  
+  --bg-dark: var(--color-dark);
+  --bg-accent: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
+
+  
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+  --font-head: "Noto Sans JP", "Hiragino Sans", system-ui, sans-serif;   
+  --font-en: "Roboto Condensed", "Noto Sans JP", sans-serif;   
+  
+  --fs-min: 13px;
+  
+  --fs-base: clamp(var(--fs-min), min(2.26dvh, 3.85vw), 15px);
+  --fs-ui: max(var(--fs-min), 13px);   
+  --fs-input: 16px;                     
+  --ls-body: 0.1em;             
+  --lh-body: 1.7;               
+  --lh-head: 1.4;
+
+  
+  --col: 480px;                  
+  --header-h: 56px;
+  --gutter: 22px;                
+  --next-h: 48px;                
+  --radius-pill: 999px;
+  --radius-s: 6px;
+  --shadow-soft: 0 0 10px 0 var(--color-shadow);
+  --shadow-column: 0 0 24px 0 var(--color-shadow);
+
+  
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --rise: 32px;                  
+  --dur-in: 600ms;
+  --dur-hover: 300ms;
+  --dur-streak: 900ms;           
+  --reel-speed: 38s;             
+}

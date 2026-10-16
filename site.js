@@ -69,7 +69,7 @@
       [...list, ...list].forEach((src) => {
         const img = document.createElement('img');
         img.className = 'reel__img';
-        img.src = src + '?v=20261016m';
+        img.src = src + '?v=20261016n';
         img.alt = '';
         img.decoding = 'async';
         track.appendChild(img);

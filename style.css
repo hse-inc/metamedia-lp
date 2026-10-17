@@ -54,10 +54,10 @@
 
 .page--worry .page__inner { gap: 0.44em; padding-top: calc(var(--header-h) + 0.45em); padding-bottom: calc(var(--next-h) + 1.4em); }
 
-.reel { position: relative; flex-shrink: 0; margin: 0 calc(var(--gutter) * -1) 0.3em; height: clamp(72px, 12.2dvh, 250px); overflow: hidden; }
+.reel { --reel-h: clamp(72px, 12.2dvh, 250px); position: relative; flex-shrink: 0; margin: 0 calc(var(--gutter) * -1) 0.3em; height: var(--reel-h); overflow: hidden; }
 .reel__track { display: flex; gap: 10px; width: max-content; height: 100%; padding-left: 10px; animation: reel var(--reel-speed) linear infinite; }
 .reel__track--rtl { animation-direction: normal; }    
-.reel__img { width: auto; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; box-shadow: 0 0.3em 0.8em var(--color-shadow); }
+.reel__img { flex: 0 0 auto; width: calc(var(--reel-h) * 4 / 3); height: var(--reel-h); object-fit: cover;    border-radius: 12px; box-shadow: 0 0.3em 0.8em var(--color-shadow); }
 @keyframes reel { to { transform: translateX(-50%); } }
 
 .worries { position: relative; display: grid; gap: 0.18em; }
@@ -198,15 +198,15 @@
 .person-head.is-on .person-face::before { animation: ripple 2.4s ease-out 600ms infinite; }
 .person-head.is-on .person-face::after { animation: ripple 2.4s ease-out 1800ms infinite; border-color: var(--color-lilac); }
 @keyframes ripple { from { transform: scale(1); opacity: 0.9; } to { transform: scale(1.25); opacity: 0; } }
-.persons { display: grid; gap: 0.3em; list-style: none; }
-.person { position: relative; padding: 0.48em 0.85em 0.52em 3.4em; background: linear-gradient(120deg, var(--color-pale) 0%, var(--color-base) 75%); }
+.persons { display: grid; gap: 0.75em; list-style: none; }
+.person { position: relative; padding: 0.75em 0.9em 0.8em 3.4em; background: linear-gradient(120deg, var(--color-pale) 0%, var(--color-base) 75%); }
 .person::before { content: ""; position: absolute; left: 0; top: 0; width: 1.6em; height: 1.6em; border-top: 3px solid var(--color-cyan); border-left: 3px solid var(--color-cyan); }   
 .person:nth-child(2) { transition-delay: 90ms; }
 .person:nth-child(3) { transition-delay: 180ms; }
 .person:first-child .person__t { padding-right: 6.4em; }   
 .person__t { font-weight: 900; font-size: 1.05em; line-height: 1.4; color: var(--color-purple); }
 .person__no { position: absolute; left: 0.45em; top: 0.18em; font-family: var(--font-en); font-weight: 600; font-size: 2.3em; line-height: 1; background: var(--grad-key-v); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.person__d { margin-top: 0.15em; font-weight: 700; font-size: max(var(--fs-min), 0.93em); line-height: 1.4; letter-spacing: 0.03em; color: var(--color-ink); }
+.person__d { margin-top: 0.3em; font-weight: 700; font-size: max(var(--fs-min), 0.93em); line-height: 1.5; letter-spacing: 0.03em; color: var(--color-ink); }
 
 .page--company .page__inner { gap: 0.9em; }
 .final-band { position: absolute; left: 0; right: 0; top: var(--header-h); z-index: 3; height: 0.5em; background: repeating-linear-gradient(115deg, var(--color-purple) 0 14px, var(--color-cyan) 14px 26px, var(--color-lilac) 26px 34px, var(--color-sky) 34px 46px); }
@@ -233,7 +233,7 @@
 @media (max-height: 600px) {
   .copy { font-size: 1.5em; }
   .msg { line-height: 1.75; }
-  .reel { height: 46px; margin-bottom: 0; }
+  .reel { --reel-h: 46px; margin-bottom: 0; }
   .page--worry .page__inner { gap: 0.3em; }
   .worry__a { line-height: 1.32; }
   .worries { gap: 0.3em; }
@@ -244,6 +244,8 @@
   .page--work .body { line-height: 1.4; }
   .lead2 { line-height: 1.4; }
   .person { padding-top: 0.45em; padding-bottom: 0.5em; }
+  .persons { gap: 0.3em; }
+  .person__d { margin-top: 0.15em; line-height: 1.4; }
   .orbit__list { gap: 0.25em; }
   .close--quote { margin-top: 0.2em; line-height: 1.42; }
   .orbit__node { min-height: 1.85em; padding-top: 0.15em; padding-bottom: 0.15em; }

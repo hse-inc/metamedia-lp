@@ -63,7 +63,7 @@
   --col: 480px;                  
   --header-h: 56px;
   --gutter: 22px;                
-  --next-h: 48px;                
+  --next-h: 0px;                 
   --radius-pill: 999px;
   --radius-s: 6px;
   --shadow-soft: 0 0 10px 0 var(--color-shadow);

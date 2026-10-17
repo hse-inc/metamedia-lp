@@ -72,8 +72,8 @@
   
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --rise: 32px;                  
-  --dur-in: 600ms;
+  --dur-in: 420ms;
   --dur-hover: 300ms;
-  --dur-streak: 900ms;           
+  --dur-streak: 620ms;           
   --reel-speed: 16s;             
 }

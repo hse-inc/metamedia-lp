@@ -69,12 +69,22 @@
       [...list, ...list].forEach((src) => {
         const img = document.createElement('img');
         img.className = 'reel__img';
-        img.src = src + '?v=20261017i';
+        img.src = src + '?v=20261017j';
         img.alt = '';
         img.width = 640; img.height = 480;
         img.decoding = 'async';
         track.appendChild(img);
       });
+      const fit = () => {
+        const dist = Math.round((track.scrollWidth - 10) / 2);
+        if (dist < 50) return;
+        track.style.setProperty('--reel-dist', `-${dist}px`);
+        track.style.setProperty('--reel-speed', `${(dist / 30).toFixed(1)}s`);
+        track.classList.add('is-ready');
+      };
+      Promise.all([...track.querySelectorAll('img')].map((im) => (im.decode ? im.decode().catch(() => {}) : Promise.resolve()))).then(fit);
+      let rt = 0;
+      window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(fit, 300); });
     });
   });
 

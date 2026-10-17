@@ -55,10 +55,11 @@
 .page--worry .page__inner { gap: 0.44em; padding-top: calc(var(--header-h) + 0.45em); padding-bottom: calc(var(--next-h) + 1.4em); }
 
 .reel { --reel-h: clamp(72px, 12.2dvh, 250px); position: relative; flex-shrink: 0; margin: 0 calc(var(--gutter) * -1) 0.3em; height: var(--reel-h); overflow: hidden; }
-.reel__track { display: flex; gap: 10px; width: max-content; height: 100%; padding-left: 10px; animation: reel var(--reel-speed) linear infinite; }
+.reel__track { display: flex; gap: 10px; width: max-content; height: 100%; padding-left: 10px; }
+.reel__track.is-ready { animation: reel var(--reel-speed) linear infinite; }   
 .reel__track--rtl { animation-direction: normal; }    
 .reel__img { flex: 0 0 auto; width: calc(var(--reel-h) * 4 / 3); height: var(--reel-h); object-fit: cover;    border-radius: 12px; box-shadow: 0 0.3em 0.8em var(--color-shadow); }
-@keyframes reel { to { transform: translateX(-50%); } }
+@keyframes reel { to { transform: translateX(var(--reel-dist, -50%)); } }
 
 .worries { position: relative; display: grid; gap: 0.18em; }
 .worries::before { content: ""; position: absolute; left: 1.05em; top: 1em; bottom: 1.2em; width: 2px; border-radius: var(--radius-pill); background: var(--grad-key-v); transform-origin: 50% 0; transform: scaleY(0); transition: transform 660ms var(--ease-out) 300ms; }

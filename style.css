@@ -12,7 +12,7 @@
 .streaks--pale { opacity: 0.16; }
 
 .page--msg .streaks { transition: opacity 420ms ease; }
-.page--msg.is-active .streaks { opacity: 0.75; transition-delay: 900ms; }
+.page--msg.is-active .streaks { opacity: 0.75; transition-delay: 540ms; }
 
 .page--msg .page__inner { gap: 1.1em; padding-top: calc(var(--header-h) + 0.6em); padding-bottom: calc(var(--next-h) + 1.2em); }
 .hero-ttl { flex-shrink: 0; font-family: var(--font-head); font-weight: 900; font-size: min(4.3em, 16.5vw, 8.6dvh); line-height: 1.16; letter-spacing: 0.04em; color: var(--color-main); }
@@ -21,21 +21,20 @@
 .hero-ttl__ln:first-child { font-size: 0.7em; }   
 .hero-ttl__ln--en { font-size: min(0.92em, 14vw); letter-spacing: -0.01em; font-feature-settings: "palt"; white-space: nowrap; }   
 .hero-ttl .rv:not(.is-on) { transform: translateY(0.4em); }
-.hero-ttl .rv.is-on { transition-delay: 600ms; }   
-.hero-ttl .rv.is-on:nth-child(2) { transition-delay: 670ms; }
+.hero-ttl .rv.is-on { transition-delay: 360ms; }   
+.hero-ttl .rv.is-on:nth-child(2) { transition-delay: 410ms; }
 .msg { flex-shrink: 0; display: grid; gap: 0.8em; font-size: 1.22em; font-weight: 900; -webkit-text-stroke: 0.45px var(--color-ink);    line-height: 1.98; color: var(--color-ink); }
-.msg .ln { display: inline; padding: 0.06em 0.3em; background: linear-gradient(var(--color-base), var(--color-base)) no-repeat 0 0 / 0% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size 360ms var(--ease-out) 990ms; }
+.msg .ln { display: inline; padding: 0.06em 0.3em; background: linear-gradient(var(--color-base), var(--color-base)) no-repeat 0 0 / 0% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size 330ms var(--ease-out) 600ms; }
 .msg.is-on .ln { background-size: 100% 100%; }
 .page--msg .body { font-weight: 900; }   
-.msg .ln + .ln::before { content: "\A"; white-space: pre; }
-.msg.rv.is-on { transition-delay: 1020ms; }   
+.msg.rv.is-on { transition-delay: 600ms; }   
 .msg .ln + .ln { margin-top: 0.5em; }
 .page--msg .close { font-size: 1.08em; color: var(--color-on-dark); -webkit-text-stroke-color: var(--color-on-dark); }
 .page--msg .close .ln { background-image: var(--grad-key); }   
 
-.hat { position: absolute; right: 0.3em; top: -0.4em; width: 0.95em; color: var(--color-purple); transform-origin: 50% 100%; opacity: 0; transform: translateY(-0.8em) rotate(40deg) scale(0.4); transition: opacity 150ms ease 1080ms, transform 420ms cubic-bezier(0.34, 1.7, 0.5, 1) 1080ms; }   
+.hat { position: absolute; right: 0.3em; top: -0.4em; width: 0.95em; color: var(--color-purple); transform-origin: 50% 100%; opacity: 0; transform: translateY(-0.8em) rotate(40deg) scale(0.4); transition: opacity 150ms ease 650ms, transform 400ms cubic-bezier(0.34, 1.7, 0.5, 1) 650ms; }   
 .hat svg { display: block; width: 100%; height: auto; overflow: visible; }   
-.page.is-active .hat { opacity: 1; transform: rotate(18deg); animation: hat-wobble 2.6s ease-in-out 2.7s infinite; }
+.page.is-active .hat { opacity: 1; transform: rotate(18deg); animation: hat-wobble 2.6s ease-in-out 1.6s infinite; }
 @keyframes hat-wobble { 0%, 100% { transform: rotate(18deg); } 50% { transform: rotate(10deg) translateY(-0.04em); } }
 
 .spark { position: absolute; left: var(--x); top: var(--y); width: var(--s); aspect-ratio: 1; background: var(--c); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); opacity: 0; }

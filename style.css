@@ -245,7 +245,6 @@
   .lead2 { line-height: 1.4; }
   .person { padding-top: 0.45em; padding-bottom: 0.5em; }
   .persons { gap: 0.3em; }
-  .person__d { margin-top: 0.15em; line-height: 1.4; }
   .orbit__list { gap: 0.25em; }
   .close--quote { margin-top: 0.2em; line-height: 1.42; }
   .orbit__node { min-height: 1.85em; padding-top: 0.15em; padding-bottom: 0.15em; }

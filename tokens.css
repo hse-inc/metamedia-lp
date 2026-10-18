@@ -52,7 +52,7 @@
   
   --fs-min: 13px;
   
-  --fs-base: clamp(var(--fs-min), min(2.26dvh, 3.85vw), 15px);
+  --fs-base: clamp(var(--fs-min), min(2.26dvh, 3.85vw, 18.5px), 18.5px);   
   --fs-ui: max(var(--fs-min), 13px);   
   --fs-input: 16px;                     
   --ls-body: 0.1em;             

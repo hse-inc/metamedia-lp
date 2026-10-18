@@ -92,7 +92,7 @@
 
 .page--feat .page__inner { gap: 0.5em; padding-top: calc(var(--header-h) + 0.9em); padding-bottom: calc(var(--next-h) + 1.7em); }   
 .page--feat .copy > .ln { background: var(--grad-key-light); -webkit-background-clip: text; background-clip: text; }
-.page--feat .hl { padding: 0; margin-right: -0.03em; background: linear-gradient(var(--color-mark-dark), var(--color-mark-dark)) no-repeat 0 94% / calc(100% - 0.5em) 0.34em; color: var(--color-on-dark); }   
+.page--feat .hl, .page--feat2 .hl { padding: 0; margin-right: -0.03em; background: linear-gradient(var(--color-mark-dark), var(--color-mark-dark)) no-repeat 0 94% / calc(100% - 0.5em) 0.34em; color: var(--color-on-dark); }   
 
 .feat-deco { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: radial-gradient(circle at 100% 0, var(--color-glow-purple), transparent 45%), radial-gradient(circle at 0 100%, var(--color-glow-cyan), transparent 42%); }
 .page--feat .body { font-weight: 700; line-height: 1.6; letter-spacing: 0.04em; }   

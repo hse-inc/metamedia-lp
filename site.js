@@ -69,7 +69,7 @@
       [...list, ...list].forEach((src) => {
         const img = document.createElement('img');
         img.className = 'reel__img';
-        img.src = src + '?v=20261018a';
+        img.src = src + '?v=20261018b';
         img.alt = '';
         img.width = 640; img.height = 480;
         img.decoding = 'async';
